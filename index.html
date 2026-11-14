@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>気象とデータのプロダクト画面一覧</title>
+<style>
+  :root { color-scheme: dark; --ink:#eff7fc; --muted:#a9bfd0; --line:#29445a; --panel:#10243a; --accent:#76dfd1; --blue:#81c9f3; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:radial-gradient(ellipse at 85% 0%,#143b50 0,transparent 32rem),#081727; color:var(--ink); font:16px/1.55 -apple-system,BlinkMacSystemFont,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif; }
+  main { width:min(1500px, calc(100% - 48px)); margin:0 auto; padding:54px 0 80px; }
+  header { margin:0 0 36px; }
+  .eyebrow { color:var(--accent); font-size:13px; letter-spacing:.18em; font-weight:750; }
+  h1 { margin:12px 0 8px; font-size:clamp(32px,5vw,58px); line-height:1.16; letter-spacing:-.035em; }
+  header p { margin:0; color:var(--muted); font-size:17px; }
+  .stats { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+  .stats span { border:1px solid #31556b; border-radius:999px; padding:5px 13px; color:#d4e8f2; background:#0e293d; font-size:13px; }
+  section { margin-top:42px; }
+  .section-head { display:flex; align-items:baseline; justify-content:space-between; gap:20px; border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:17px; }
+  h2 { margin:0; font-size:23px; }
+  .count { color:#7b9aaf; font-size:12px; letter-spacing:.1em; }
+  .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+  .card { min-width:0; overflow:hidden; border:1px solid var(--line); border-radius:15px; background:var(--panel); box-shadow:0 10px 30px #020a1260; }
+  .bar { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:13px 15px 11px; }
+  .bar a { color:var(--ink); text-decoration:none; font-weight:730; font-size:15px; overflow-wrap:anywhere; }
+  .bar a:hover { color:var(--accent); }
+  .open { flex:none; font-size:12px !important; color:var(--accent) !important; }
+  .screen { display:block; width:100%; height:295px; border:0; background:#e9f1f5; }
+  .caption { min-height:54px; padding:9px 15px 12px; color:var(--muted); font-size:13px; }
+  .repo-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px 18px; padding:15px 0 0; }
+  .repo-list a { color:#c3d8e5; text-decoration:none; font-size:13px; padding:8px 10px; border:1px solid #203b50; border-radius:9px; background:#0c1f32; overflow-wrap:anywhere; }
+  .repo-list a:hover { border-color:#4c8390; color:#fff; }
+  .note { color:#7895a9; font-size:12px; margin-top:24px; }
+  @media(max-width:1050px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .repo-list { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media(max-width:640px) { main { width:min(100% - 28px,520px); padding-top:34px; } .grid,.repo-list { grid-template-columns:1fr; } .screen { height:300px; } h2 { font-size:20px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">MASAUEHR / PROJECTS</div>
+    <h1>プロダクトの画面で見る<br>気象 × データ × AI</h1>
+    <p>公開中のWebプロダクトを実画面で一覧。各画面からプロダクトへ移動できます。</p>
+    <div class="stats"><span>46 projects</span><span>15 live screens</span><span>5 fields</span></div>
+  </header>
+
+  <section>
+    <div class="section-head"><h2>天気図・数値予報</h2><span class="count">4 LIVE SCREENS</span></div>
+    <div class="grid">
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/tenkizu_web/" target="_blank" rel="noreferrer">tenkizu_web</a><a class="open" href="https://masauehr.github.io/tenkizu_web/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/tenkizu_web/" title="tenkizu_web のプロダクト画面" loading="lazy"></iframe><div class="caption">天気図・断面図・エマグラムをWebで表示</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/nwp_chart_web/" target="_blank" rel="noreferrer">nwp_chart_web</a><a class="open" href="https://masauehr.github.io/nwp_chart_web/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/nwp_chart_web/" title="nwp_chart_web のプロダクト画面" loading="lazy"></iframe><div class="caption">ECMWF・GFS・AIFS 数値モデル天気図ビューア</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/week_forecast_charts/" target="_blank" rel="noreferrer">week_forecast_charts</a><a class="open" href="https://masauehr.github.io/week_forecast_charts/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/week_forecast_charts/" title="week_forecast_charts のプロダクト画面" loading="lazy"></iframe><div class="caption">週間〜2週間予報の平均・平年偏差・確率図</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/weather_chart_vlm/webui/index.html" target="_blank" rel="noreferrer">weather_chart_vlm</a><a class="open" href="https://masauehr.github.io/weather_chart_vlm/webui/index.html" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/weather_chart_vlm/webui/index.html" title="weather_chart_vlm のプロダクト画面" loading="lazy"></iframe><div class="caption">天気図・衛星画像をVLMで解説（日次更新）</div></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>気象データ・ビューア</h2><span class="count">7 LIVE SCREENS</span></div>
+    <div class="grid">
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/iphone-weather-app/" target="_blank" rel="noreferrer">衛星・レーダー・キキクル App</a><a class="open" href="https://masauehr.github.io/iphone-weather-app/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/iphone-weather-app/" title="気象Appのプロダクト画面" loading="lazy"></iframe><div class="caption">天気予報・レーダー衛星・キキクルの3タブ</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/jaxa_earth_viewer/" target="_blank" rel="noreferrer">jaxa_earth_viewer</a><a class="open" href="https://masauehr.github.io/jaxa_earth_viewer/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/jaxa_earth_viewer/" title="JAXA Earth Viewer のプロダクト画面" loading="lazy"></iframe><div class="caption">JAXA Earth API衛星データの地図ビューア</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/tide_viewer/" target="_blank" rel="noreferrer">tide_viewer</a><a class="open" href="https://masauehr.github.io/tide_viewer/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/tide_viewer/" title="tide_viewer のプロダクト画面" loading="lazy"></iframe><div class="caption">沖縄県7観測所の潮位一覧</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/taiwan-weather-viewer/" target="_blank" rel="noreferrer">taiwan-weather-viewer</a><a class="open" href="https://masauehr.github.io/taiwan-weather-viewer/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/taiwan-weather-viewer/" title="taiwan-weather-viewer のプロダクト画面" loading="lazy"></iframe><div class="caption">台湾の天気を中央氣象署データで表示（日中併記）</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/beachball_decoder/" target="_blank" rel="noreferrer">beachball_decoder</a><a class="open" href="https://masauehr.github.io/beachball_decoder/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/beachball_decoder/" title="beachball_decoder のプロダクト画面" loading="lazy"></iframe><div class="caption">震源球を直感的な図へ変換</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/lichens/" target="_blank" rel="noreferrer">lichens</a><a class="open" href="https://masauehr.github.io/lichens/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/lichens/" title="lichens のプロダクト画面" loading="lazy"></iframe><div class="caption">地衣類フォトマップ</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/map_registry/" target="_blank" rel="noreferrer">map_registry</a><a class="open" href="https://masauehr.github.io/map_registry/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/map_registry/" title="map_registry のプロダクト画面" loading="lazy"></iframe><div class="caption">申請制・承認制の地図登録システム</div></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>MCP・自動ダイジェスト</h2><span class="count">3 LIVE SCREENS</span></div>
+    <div class="grid">
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/weather_digest/" target="_blank" rel="noreferrer">weather_digest</a><a class="open" href="https://masauehr.github.io/weather_digest/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/weather_digest/" title="weather_digest のプロダクト画面" loading="lazy"></iframe><div class="caption">気象・気候・防災ニュースの週次／月次ダイジェスト</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/econ_digest/" target="_blank" rel="noreferrer">econ_digest</a><a class="open" href="https://masauehr.github.io/econ_digest/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/econ_digest/" title="econ_digest のプロダクト画面" loading="lazy"></iframe><div class="caption">経済・マーケットニュースの週次／月次ダイジェスト</div></article>
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/ai_news/" target="_blank" rel="noreferrer">ai_news</a><a class="open" href="https://masauehr.github.io/ai_news/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/ai_news/" title="ai_news のプロダクト画面" loading="lazy"></iframe><div class="caption">生成AI最新情報の週次／月次ダイジェスト</div></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>AI・機械学習の学習</h2><span class="count">1 LIVE SCREEN + 12 REPOSITORIES</span></div>
+    <div class="grid">
+      <article class="card"><div class="bar"><a href="https://masauehr.github.io/weather_hackathon_ideas/" target="_blank" rel="noreferrer">weather_hackathon_ideas</a><a class="open" href="https://masauehr.github.io/weather_hackathon_ideas/" target="_blank" rel="noreferrer">開く ↗</a></div><iframe class="screen" src="https://masauehr.github.io/weather_hackathon_ideas/" title="weather_hackathon_ideas のプロダクト画面" loading="lazy"></iframe><div class="caption">気象×生成AIのアイデア集</div></article>
+    </div>
+    <div class="repo-list">
+      <a href="https://github.com/masauehr/anomaly_lab" target="_blank" rel="noreferrer">anomaly_lab · 異常検知</a><a href="https://github.com/masauehr/rl_lab" target="_blank" rel="noreferrer">rl_lab · 強化学習</a><a href="https://github.com/masauehr/recsys_lab" target="_blank" rel="noreferrer">recsys_lab · 推薦システム</a>
+      <a href="https://github.com/masauehr/dl_forecast_lab" target="_blank" rel="noreferrer">dl_forecast_lab · 時系列予測</a><a href="https://github.com/masauehr/image_augment_lab" target="_blank" rel="noreferrer">image_augment_lab · データ拡張</a><a href="https://github.com/masauehr/plate_reader_lab" target="_blank" rel="noreferrer">plate_reader_lab · 画像認識</a>
+      <a href="https://github.com/masauehr/typhoon_track_dl" target="_blank" rel="noreferrer">typhoon_track_dl · 台風進路分析</a><a href="https://github.com/masauehr/typhoon_wind_dl" target="_blank" rel="noreferrer">typhoon_wind_dl · 台風風速分析</a><a href="https://github.com/masauehr/1bit_LLM" target="_blank" rel="noreferrer">1bit_LLM · LLM実験</a>
+      <a href="https://github.com/masauehr/cloud_sim" target="_blank" rel="noreferrer">cloud_sim · 雲物理</a><a href="https://github.com/masauehr/solar_curtailment_kyushu" target="_blank" rel="noreferrer">solar_curtailment_kyushu · 太陽光分析</a><a href="https://github.com/masauehr/audio_transcriber" target="_blank" rel="noreferrer">audio_transcriber · 音声文字起こし</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>その他のプロダクト</h2><span class="count">GITHUB PROJECTS</span></div>
+    <div class="repo-list">
+      <a href="https://github.com/masauehr/tenkizu" target="_blank" rel="noreferrer">tenkizu · GSM天気図</a><a href="https://github.com/masauehr/nwp_xsection_api" target="_blank" rel="noreferrer">nwp_xsection_api · 断面図API</a><a href="https://github.com/masauehr/long_range_charts" target="_blank" rel="noreferrer">long_range_charts · 長期予報図</a>
+      <a href="https://github.com/masauehr/taiwan-radar-frames" target="_blank" rel="noreferrer">taiwan-radar-frames · 台湾レーダー</a><a href="https://github.com/masauehr/kaiyo_sokuho_viewer" target="_blank" rel="noreferrer">kaiyo_sokuho_viewer · 海流GIS</a><a href="https://github.com/masauehr/dry_route" target="_blank" rel="noreferrer">dry_route · 雨に濡れない経路ナビ</a>
+      <a href="https://github.com/masauehr/jma_navigator" target="_blank" rel="noreferrer">jma_navigator · 気象庁案内</a><a href="https://github.com/masauehr/typhoon_forecast_viewer" target="_blank" rel="noreferrer">typhoon_forecast_viewer · 台風ビューア</a><a href="https://github.com/masauehr/jma-mcp" target="_blank" rel="noreferrer">jma-mcp · 気象庁MCP</a>
+      <a href="https://github.com/masauehr/jma-mcp-remote" target="_blank" rel="noreferrer">jma-mcp-remote · MCPリモート版</a><a href="https://github.com/masauehr/jma_weather_report" target="_blank" rel="noreferrer">jma_weather_report · 沖縄予報</a><a href="https://github.com/masauehr/automated-data-collector" target="_blank" rel="noreferrer">automated-data-collector · データ収集</a>
+      <a href="https://github.com/masauehr/RAG_met" target="_blank" rel="noreferrer">RAG_met · 気象RAG</a><a href="https://github.com/masauehr/tonari_no_mago" target="_blank" rel="noreferrer">tonari_no_mago · やさしい画面ガイド</a><a href="https://github.com/masauehr/openclaw_setup" target="_blank" rel="noreferrer">openclaw_setup · 導入記録</a>
+      <a href="https://github.com/masauehr/claude_writing" target="_blank" rel="noreferrer">claude_writing · Claude Code文章術</a><a href="https://github.com/masauehr/marp_slides" target="_blank" rel="noreferrer">marp_slides · スライド生成</a><a href="https://github.com/masauehr/setup_guide_ext" target="_blank" rel="noreferrer">setup_guide_ext · 設定ガイド拡張</a>
+      <a href="https://github.com/masauehr/gsr-webapp" target="_blank" rel="noreferrer">gsr-webapp · 全天日射量可視化</a>
+    </div>
+  </section>
+  <p class="note">公開ページを埋め込んで表示しています。埋め込みに対応していない画面は「開く」から直接確認できます。</p>
+</main>
+</body>
+</html>
